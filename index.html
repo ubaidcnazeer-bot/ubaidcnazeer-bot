@@ -1,76 +1,106 @@
-def add_student():
-    roll = input("Enter Roll No: ")
-    name = input("Enter Name: ")
-    marks = input("Enter Marks: ")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
 
-    with open("students.txt", "a") as f:
-        f.write(f"{roll},{name},{marks}\n")
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
 
-    print("Student added successfully!\n")
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
 
-def view_students():
-    try:
-        with open("students.txt", "r") as f:
-            print("\n--- Student List ---")
-            for line in f:
-                roll, name, marks = line.strip().split(",")
-                print(f"Roll: {roll}, Name: {name}, Marks: {marks}")
-    except:
-        print("No records found.")
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
+        section {
+            padding: 40px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 8px;
+        }
 
-def search_student():
-    search_roll = input("Enter Roll No to search: ")
-    found = False
+        h2 {
+            color: #333;
+        }
 
-    with open("students.txt", "r") as f:
-        for line in f:
-            roll, name, marks = line.strip().split(",")
-            if roll == search_roll:
-                print(f"Found → Name: {name}, Marks: {marks}")
-                found = True
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
 
-    if not found:
-        print("Student not found.")
+<body>
 
+<header>
+    <h1>UBAIDULLAH</h1>
+    <p>Web Developer | Student | Beginner Programmer</p>
+</header>
 
-def delete_student():
-    roll_delete = input("Enter Roll No to delete: ")
-    lines = []
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    with open("students.txt", "r") as f:
-        lines = f.readlines()
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Hello! I am Ubaidullah. I am learning web development and programming.
+        I like creating websites using HTML, CSS and basic JavaScript.
+    </p>
+</section>
 
-    with open("students.txt", "w") as f:
-        for line in lines:
-            roll, _, _ = line.strip().split(",")
-            if roll != roll_delete:
-                f.write(line)
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Basic JavaScript</li>
+        <li>Python (Beginner)</li>
+    </ul>
+</section>
 
-    print("Student deleted successfully.")
+<section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li>Simple Portfolio Website</li>
+        <li>Student Result System</li>
+        <li>Python License Checker</li>
+    </ul>
+</section>
 
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: example@gmail.com</p>
+    <p>Phone: +91 XXXXXXXX</p>
+</section>
 
-while True:
-    print("\n--- Student Management System ---")
-    print("1. Add Student")
-    print("2. View Students")
-    print("3. Search Student")
-    print("4. Delete Student")
-    print("5. Exit")
+<footer>
+    <p>© 2026 Ubaidullah | All Rights Reserved</p>
+</footer>
 
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        add_student()
-    elif choice == "2":
-        view_students()
-    elif choice == "3":
-        search_student()
-    elif choice == "4":
-        delete_student()
-    elif choice == "5":
-        print("Thank you!")
-        break
-    else:
-        print("Invalid choice")
+</body>
+</html>
